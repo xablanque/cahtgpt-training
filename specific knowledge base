@@ -1,0 +1,27 @@
+import openai
+
+# Set your OpenAI API key
+openai.api_key = 'your-api-key'
+
+# Define the knowledge base
+knowledge_base = """
+Your custom knowledge base goes here.
+Include relevant information for the bot to reference.
+"""
+
+# Prompt the model with user input
+user_input = "Ask a question or provide input"
+prompt = f"{user_input}\n\nKnowledge Base:\n{knowledge_base}"
+
+# Make an API call to ChatGPT
+response = openai.Completion.create(
+    engine="text-davinci-003",  # Choose an appropriate engine
+    prompt=prompt,
+    max_tokens=150  # Adjust as needed
+)
+
+# Extract the model's reply from the response
+bot_reply = response['choices'][0]['text']
+
+print(f"User Input: {user_input}")
+print(f"ChatGPT Reply: {bot_reply}")
