@@ -1,0 +1,8 @@
+import json
+
+# Read knowledge base from a JSON file
+with open('knowledge_base.json', 'r') as file:
+    knowledge_base = json.load(file)
+
+# Use the knowledge base in your Python program
+print(knowledge_base)
